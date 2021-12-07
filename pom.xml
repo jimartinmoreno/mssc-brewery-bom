@@ -86,6 +86,13 @@
                 <version>${awaitility.version}</version>
                 <scope>test</scope>
             </dependency>
+			<dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>2020.0.3</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -121,6 +128,31 @@
             <scope>runtime</scope>
             <optional>true</optional>
         </dependency>
+		
+		 <!-- Dependencia para cargar las dependencias del config server, carga el bootstrap-local-discovery.properties -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-config</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-bootstrap</artifactId>
+        </dependency>
+
+		<!-- Dependencia para cargar el cliente de eureka, para service registry -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+        </dependency>
+
+        <!-- Dependencia para cargar las zipkin, para cargar realizar loggin distribuido -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-zipkin</artifactId>
+            <version>2.2.8.RELEASE</version>
+        </dependency>
+		
+		
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
