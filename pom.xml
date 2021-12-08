@@ -51,7 +51,7 @@
         <awaitility.version>3.1.6</awaitility.version>
         <jruby.version>9.2.17.0</jruby.version>
         <!-- set this to the docker acct name -->
-        <docker.image.prefix>sfgbeerworks</docker.image.prefix>
+        <docker.image.prefix>jimartin7</docker.image.prefix>
         <!-- set the name of the project to the image -->
         <docker.image.name>${project.artifactId}</docker.image.name>
     </properties>
