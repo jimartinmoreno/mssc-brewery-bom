@@ -144,20 +144,20 @@
             <artifactId>spring-cloud-starter-bootstrap</artifactId>
         </dependency>
 
-        <!-- Dependencia para cargar el cliente de eureka, para service registry -->
+        <!-- Dependencia para cargar el cliente de eureka, para el service registry -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
         </dependency>
 
-        <!-- Dependencia para cargar las zipkin, para cargar realizar loggin distribuido -->
+        <!-- Dependencia para cargar zipkin, que realiza loggin distribuido e permite identificar problemas de latencia -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-zipkin</artifactId>
             <version>2.2.8.RELEASE</version>
         </dependency>
 
-
+        <!-- Esta dependencia solamente la usamos para test y cuando no usamos el perfil que apunta a MySQL -->
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
@@ -168,17 +168,20 @@
             <artifactId>mysql-connector-java</artifactId>
             <scope>runtime</scope>
         </dependency>
+        <!--   java library tool that is used to minimize/remove the boilerplate during development by just using some annotations     -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <optional>true</optional>
         </dependency>
+        <!--   MapStruct is a code generator that greatly simplifies the implementation of mappings between Java bean     -->
         <dependency>
             <groupId>org.mapstruct</groupId>
             <artifactId>mapstruct</artifactId>
             <version>${org.mapstruct.version}</version>
         </dependency>
 
+        <!-- TESTING -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
@@ -205,12 +208,14 @@
             <artifactId>spring-restdocs-mockmvc</artifactId>
             <scope>test</scope>
         </dependency>
-
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+        <!-- TESTING -->
+
+        <!-- VALIDACIONES  -->
         <!-- Necesario desde la versión 2.3 de spring boot para hacer validaciones -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -225,7 +230,9 @@
             <artifactId>hibernate-validator</artifactId>
             <version>6.2.0.Final</version>
         </dependency>
+        <!-- VALIDACIONES -->
 
+        <!--   LOGGING    -->
 
         <!-- logstash-logback-encoder -->
         <dependency>
@@ -259,6 +266,7 @@
             <artifactId>spring-boot-starter-log4j2</artifactId>
         </dependency>
         -->
+        <!--   LOGGING    -->
 
     </dependencies>
 
@@ -310,6 +318,8 @@
                     </compilerArgs>
                 </configuration>
             </plugin>
+
+            <!-- Genera documentacion de los servicios rest, se generan durante la fase de test de maven -->
             <plugin>
                 <groupId>org.asciidoctor</groupId>
                 <artifactId>asciidoctor-maven-plugin</artifactId>
@@ -345,6 +355,7 @@
                     </dependency>
                 </dependencies>
             </plugin>
+
             <!--
                 You may want to package the generated documentation in your project’s jar file: for example,
                 to have it served as static content by Spring Boot
@@ -409,6 +420,7 @@
                 </executions>
             </plugin>
 
+            <!-- Docker image generation plugin -->
             <plugin>
                 <groupId>io.fabric8</groupId>
                 <artifactId>docker-maven-plugin</artifactId>
